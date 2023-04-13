@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+            background-color: rgb(157, 70, 238);
+
+        }
+        #container{
+            background-color: rgb(144, 255, 237);
+            border-radius: 20px;
+        }
+        h1{
+            text-align: center;
+          
+            color: rgb(255, 166, 0);
+            padding: 10px;
+            margin: 0px;
+        }
+        #textbox{
+            width: 99.3%;
+          
+            
+        }
+        p{
+            text-align: center;
+           
+            font-size: 25px;
+            color: rgb(122, 76, 76);
+            font-weight: bold;
+            padding: 10px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h1>word and character counter</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0</span>  word and
+        <span id="char">0</span> character 
+    </p>
+</div>
+    <script>
+        let textbox = document.getElementById("textbox")
+        textbox.addEventListener("input",function(){
+            let text = this.value;
+            // let character = text.length;
+            document.getElementById("char").innerHTML = text.length;
+          
+           text =  text.trim()
+            let word = text.split(" ")
+            let wordlist = word.filter(function(elem){
+                return elem != ""
+            })
+            document.getElementById("word").innerHTML = wordlist.length
+        })
+    </script>
+</body>
+</html>
